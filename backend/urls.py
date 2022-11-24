@@ -19,13 +19,19 @@ from django.urls import path, include, re_path
 
 from rest_framework import routers
 from sinaisvitais.api import viewsets as sinaissitaisviewset
+from hemodinamica.api import viewsets as hemodinamicaviewset
+from usuario.api import viewsets as usuarioviewset
 
 route = routers.DefaultRouter()
 
 route.register(r'sinaisvitais', sinaissitaisviewset.SinaisVitaisViewSet, basename="SinaisVitais")
+route.register(r'hemodinamica', hemodinamicaviewset.HemodinamicaViewSet, basename="Hemodinamica")
+route.register(r'usuario', usuarioviewset.UsuarioViewSet, basename="Usuario")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(route.urls)),
     re_path(r'^', include('sinaisvitais.urls')),
+    re_path(r'^', include('hemodinamica.urls')),
+    re_path(r'^', include('usuario.urls')),
 ]
