@@ -21,12 +21,14 @@ from rest_framework import routers
 from sinaisvitais.api import viewsets as sinaissitaisviewset
 from hemodinamica.api import viewsets as hemodinamicaviewset
 from usuario.api import viewsets as usuarioviewset
+from respiracao.api import viewsets as respiracaoviewset
 
 route = routers.DefaultRouter()
 
 route.register(r'sinaisvitais', sinaissitaisviewset.SinaisVitaisViewSet, basename="SinaisVitais")
 route.register(r'hemodinamica', hemodinamicaviewset.HemodinamicaViewSet, basename="Hemodinamica")
 route.register(r'usuario', usuarioviewset.UsuarioViewSet, basename="Usuario")
+route.register(r'respiracao', respiracaoviewset.RespiracaoViewSet, basename="Respiracao")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +36,5 @@ urlpatterns = [
     re_path(r'^', include('sinaisvitais.urls')),
     re_path(r'^', include('hemodinamica.urls')),
     re_path(r'^', include('usuario.urls')),
+    re_path(r'^', include('respiracao.urls')),
 ]
