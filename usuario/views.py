@@ -22,13 +22,13 @@ def usuarioApi(request, id=0):
         return JsonResponse("Falha ao adicionar!", safe=False)
     elif request.method == 'PUT':
         usuario_data = JSONParser().parse(request)
-        usuario = Usuario.objects.get(id_usuario=usuario_data['id_usuario'])
+        usuario = Usuario.objects.get(id=usuario_data['id'])
         usuario_serializer = UsuarioSerializer(usuario, data=usuario_data)
         if usuario_serializer.is_valid():
             usuario_serializer.save()
             return JsonResponse("Atualizado com sucesso!", safe=False)
         return JsonResponse("Falha ao atualizar!", safe=False)
     elif request.method == 'DELETE':
-        usuario = Usuario.objects.get(id_usuario=id)
+        usuario = Usuario.objects.get(id=id)
         usuario.delete()
         return JsonResponse("Deletado com sucesso!", safe=False)

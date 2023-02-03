@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'hemodinamica',
     'usuario',
     'respiracao',
+    'neurologico',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
