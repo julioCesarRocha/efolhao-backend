@@ -3,5 +3,4 @@ from sinaisvitais import views
 
 urlpatterns = [
     re_path(r'^sinaisvitais', views.sinaisVitaisApi),
-    re_path(r'^sinaisvitais', views.sinaisVitaisApi),
 ]   

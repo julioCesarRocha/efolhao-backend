@@ -11,3 +11,5 @@ class Neurologico(models.Model) :
     dor = models.IntegerField()
     pic = models.CharField(max_length=200)
     sj02 = models.IntegerField()
+    data_criacao = models.DateField(auto_now_add=True)
+    id_usuario = models.ForeignKey('usuario.Usuario', on_delete=models.CASCADE)
