@@ -17,6 +17,12 @@ class SinaisVitais(models.Model) :
     pa_media = models.DecimalField(max_digits=6, decimal_places=2)
     data_criacao = models.DateField(auto_now_add=True)
 
+def get_sinais_vitais(cls, id):
+        try:
+            return cls.objects.get(id_sinal_vital=id)
+        except cls.DoesNotExist:
+            return None
+
 # class PlotSinaisVitais(APIView):
 
 #     def get(self, request, id_sinal_vital):
