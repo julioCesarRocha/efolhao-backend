@@ -12,7 +12,7 @@ def sinaisVitaisApi(request, id=0):
     # criar tratamento de requisicao GET
     if request.method == 'GET':
         sinaisvitais = SinaisVitais.objects.all()
-        sinaisvitais_serializer = SinaisVitaisSerializer(sinaisvitais, many=True)
+        sinaisvitais_serializer = SinaisVitaisSerializer(sinaisvitais)
         return JsonResponse(sinaisvitais_serializer.data, safe=False)
     elif request.method == 'POST':
         sinaisvitais_data = JSONParser().parse(request)
