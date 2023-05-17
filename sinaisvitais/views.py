@@ -16,7 +16,6 @@ def sinaisVitaisApi(request, id=0):
             return JsonResponse(sinaisvitais_serializer.data, safe=False)
         else:
             sinal_vital = SinaisVitais.get_sinais_vitais(id)
-            print(sinal_vital)
             if sinal_vital:
                 sinaisvitais_serializer = SinaisVitaisSerializer(sinal_vital)
                 return JsonResponse(sinaisvitais_serializer.data, safe=False)

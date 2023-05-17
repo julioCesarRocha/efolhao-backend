@@ -1,5 +1,6 @@
 from django.db import models
 from uuid import uuid4
+from usuario.models import Usuario
 
 # Create your models here.
 
@@ -12,4 +13,4 @@ class Neurologico(models.Model) :
     pic = models.CharField(max_length=200)
     sj02 = models.IntegerField()
     data_criacao = models.DateField(auto_now_add=True)
-    id_usuario = models.ForeignKey('usuario.Usuario', on_delete=models.CASCADE)
+    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)

@@ -1,5 +1,6 @@
 from django.db import models
 from uuid import uuid4
+from usuario.models import Usuario
 
 class Hemodinamica(models.Model) :
     id_dado_hemodinamica = models.UUIDField(primary_key=True, default=uuid4, editable=False)
@@ -9,5 +10,5 @@ class Hemodinamica(models.Model) :
     ic = models.DecimalField(max_digits=4, decimal_places=1)
     debito_cardiaco = models.DecimalField(max_digits=4, decimal_places=1)
     sv02 = models.IntegerField()
-    # id_usuario = models.ForeignKey('Usuarios', on_delete=models.CASCADE)
+    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
     data_criacao = models.DateField(auto_now_add=True)
