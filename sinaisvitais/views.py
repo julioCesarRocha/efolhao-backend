@@ -8,16 +8,17 @@ from sinaisvitais.api.serializers import SinaisVitaisSerializer
 # Create your views here.
 
 @csrf_exempt
-def sinaisVitaisApi(request, id=0):
+def sinaisVitaisApi(request, id_usuario=None):
+    print('id_usuario', id_usuario)
     if request.method == 'GET':
-        if id == 0:
+        if id_usuario == None:
             sinaisvitais = SinaisVitais.objects.all()
             sinaisvitais_serializer = SinaisVitaisSerializer(sinaisvitais, many=True)
             return JsonResponse(sinaisvitais_serializer.data, safe=False)
         else:
-            sinal_vital = SinaisVitais.get_sinais_vitais(id)
-            if sinal_vital:
-                sinaisvitais_serializer = SinaisVitaisSerializer(sinal_vital)
+            sinaisvitais = SinaisVitais.objects.filter(id_usuario=id_usuario)
+            if sinaisvitais.exists():
+                sinaisvitais_serializer = SinaisVitaisSerializer(sinaisvitais, many=True)
                 return JsonResponse(sinaisvitais_serializer.data, safe=False)
             return JsonResponse({"message": "Registro não encontrado"}, status=404)
     elif request.method == 'POST':
