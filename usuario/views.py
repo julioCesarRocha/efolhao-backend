@@ -8,7 +8,7 @@ from usuario.api.serializers import UsuarioSerializer
 # Create your views here.
 
 @csrf_exempt
-def usuarioApi(request, id=0):
+def usuarioApi(request, id_usuario=None):
     if request.method == 'GET':
         usuario = Usuario.objects.all()
         usuario_serializer = UsuarioSerializer(usuario, many=True)
@@ -32,3 +32,9 @@ def usuarioApi(request, id=0):
         usuario = Usuario.objects.get(id=id)
         usuario.delete()
         return JsonResponse("Deletado com sucesso!", safe=False)
+
+def usuarioById(id_usuario, request):
+    print ('id_usuario nova func ', id_usuario)
+    usuario = Usuario.objects.get(id=id_usuario)
+    usuario_serializer = UsuarioSerializer(usuario)
+    return JsonResponse(usuario_serializer.data, safe=False)

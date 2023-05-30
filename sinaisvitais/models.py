@@ -13,6 +13,7 @@ class SinaisVitais(models.Model) :
     pa_media = models.DecimalField(max_digits=6, decimal_places=2)
     data_criacao = models.DateField(auto_now_add=True)
     id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
+
 def get_sinais_vitais(id):
         try:
             return SinaisVitais.objects.get(id_usuario=id)

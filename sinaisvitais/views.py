@@ -9,7 +9,6 @@ from sinaisvitais.api.serializers import SinaisVitaisSerializer
 
 @csrf_exempt
 def sinaisVitaisApi(request, id_usuario=None):
-    print('id_usuario', id_usuario)
     if request.method == 'GET':
         if id_usuario == None:
             sinaisvitais = SinaisVitais.objects.all()

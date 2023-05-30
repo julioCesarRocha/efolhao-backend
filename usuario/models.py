@@ -14,4 +14,5 @@ class Usuario(models.Model) :
     reg = models.CharField(max_length=100, blank=True, default='')
     convenio = models.CharField(max_length=225, blank=True, default='')
     leito = models.CharField(max_length=100, blank=True, default='')
+    st_alta = models.BooleanField(default=False, blank=True, null=True)
 
