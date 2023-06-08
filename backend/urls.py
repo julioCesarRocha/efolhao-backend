@@ -26,11 +26,11 @@ from neurologico.api import viewsets as neurologicoviewset
 
 route = routers.DefaultRouter()
 
-route.register(r'sinaisvitais', sinaissitaisviewset.SinaisVitaisViewSet, basename="SinaisVitais")
-route.register(r'hemodinamica', hemodinamicaviewset.HemodinamicaViewSet, basename="Hemodinamica")
-route.register(r'usuario', usuarioviewset.UsuarioViewSet, basename="Usuario")
-route.register(r'respiracao', respiracaoviewset.RespiracaoViewSet, basename="Respiracao")
-route.register(r'neurologico', neurologicoviewset.NeurologicoViewSet, basename="Neurologico")
+# route.register(r'sinaisvitais', sinaissitaisviewset.SinaisVitaisViewSet, basename="SinaisVitais")
+# route.register(r'hemodinamica', hemodinamicaviewset.HemodinamicaViewSet, basename="Hemodinamica")
+# route.register(r'usuario', usuarioviewset.UsuarioViewSet, basename="Usuario")
+# route.register(r'respiracao', respiracaoviewset.RespiracaoViewSet, basename="Respiracao")
+# route.register(r'neurologico', neurologicoviewset.NeurologicoViewSet, basename="Neurologico")
 
 urlpatterns = [
     path('admin/', admin.site.urls),

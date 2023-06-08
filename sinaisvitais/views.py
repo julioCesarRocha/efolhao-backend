@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
+from uuid import uuid4
 
 from sinaisvitais.models import SinaisVitais
 from sinaisvitais.api.serializers import SinaisVitaisSerializer

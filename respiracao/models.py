@@ -11,6 +11,7 @@ class Respiracao(models.Model) :
     p_pico = models.DecimalField(max_digits=3, decimal_places=1)
     volume_corrente = models.IntegerField()
     data_criacao = models.DateField(auto_now_add=True)
-    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
+    # id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
+    id_usuario = models.CharField(max_length=350, null=True, blank=True)
     # pet_co2 = models.IntegerField()
     # pressao_cuff = models.BooleanField()
