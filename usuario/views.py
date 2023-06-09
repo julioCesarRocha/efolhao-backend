@@ -8,11 +8,18 @@ from usuario.api.serializers import UsuarioSerializer
 # Create your views here.
 
 @csrf_exempt
-def usuarioApi(request, id_usuario=None):
+def usuarioApi(request, id=None):
     if request.method == 'GET':
-        usuario = Usuario.objects.all()
-        usuario_serializer = UsuarioSerializer(usuario, many=True)
-        return JsonResponse(usuario_serializer.data, safe=False)
+        if id == None:
+            usuario = Usuario.objects.all().order_by('nome')
+            usuario_serializer = UsuarioSerializer(usuario, many=True)
+            return JsonResponse(usuario_serializer.data, safe=False)
+        try:
+            usuario = Usuario.objects.get(id=id)
+            usuario_serializer = UsuarioSerializer(usuario)
+            return JsonResponse(usuario_serializer.data, safe=False)
+        except Usuario.DoesNotExist:
+            return JsonResponse("Usuário não encontrado", status=404)
     elif request.method == 'POST':
         usuario_data = JSONParser().parse(request)
         usuario_serializer = UsuarioSerializer(data=usuario_data)
