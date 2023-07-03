@@ -13,5 +13,7 @@ class Neurologico(models.Model) :
     pic = models.CharField(max_length=200)
     sj02 = models.IntegerField()
     data_criacao = models.DateField(auto_now_add=True)
-    # id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
     id_usuario = models.CharField(max_length=350, null=True, blank=True)
+    abertura_ocular = models.IntegerField(null=True, blank=True)
+    resposta_verbal = models.IntegerField(null=True, blank=True)
+    resposta_motora = models.IntegerField(null=True, blank=True)
